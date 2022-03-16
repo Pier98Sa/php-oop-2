@@ -20,6 +20,9 @@ var_dump($Cuccia1);
 $Gioco1 = new Giochi("Trixie",15,75,007,'plastica');
 var_dump($Gioco1);
 
+$Antipulce1 = new Antipulci("Seresto",12,51,015,'');
+var_dump($Antipulce1);
+
 $UserOspite1 = new User("Luigi","Rossi","luigirossi@email.it", "Via corso 2",3405745600);
 var_dump($UserOspite1);
 

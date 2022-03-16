@@ -6,12 +6,8 @@ require_once __DIR__ . '/User.php';
 class LoggedUser extends User{
     protected $sconto = 20;
 
-    public function __construct($nome,$cognome,$email,$Indirizzo,$numeroTelefono,$sconto){
+    public function __construct($nome,$cognome,$email,$Indirizzo,$numeroTelefono){
         //valori ripresi dalla classe padre
-        parent::__construct($nome,$cognome,$email,$Indirizzo,$numeroTelefono );
-
-        //valori nuovi
-        $this->sconto = $sconto;
-        
+        parent::__construct($nome,$cognome,$email,$Indirizzo,$numeroTelefono);
     }
 }
