@@ -7,13 +7,22 @@ class Cucce extends Giochi{
     protected $altezza;
     protected $larghezza;
 
-    public function __construct($nome, $sconto = null, $pezzi = null, $codiceProdotto = null,$materiale = null, $altezza = null, $larghezza = null){
+    public function __construct($nome, $sconto, $pezzi , $codiceProdotto ,$materiale, $altezza, $larghezza){
         //valori ripresi dalla classe padre
         parent::__construct($nome, $sconto, $pezzi , $codiceProdotto,$materiale);
 
         //valori nuovi
-        $this->altezza = $altezza;
-        $this->larghezza = $larghezza;
+        if(is_numeric($altezza)&& $altezza >= 100 && $altezza <= 300){
+            $this->altezza = $altezza; 
+        }else{
+            echo 'Error misura altezza non valida';
+        }
+        
+        if(is_numeric($larghezza)&& $larghezza >= 100 && $larghezza <= 300){
+            $this->larghezza = $larghezza; 
+        }else{
+            echo 'Error misura larghezza non valida';
+        }
     }
 
     public function setAltezza($altezza){

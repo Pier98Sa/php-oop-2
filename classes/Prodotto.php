@@ -7,11 +7,32 @@ class Prodotto{
     protected $codiceProdotto;
 
     //costruttore che richiede di base il nome
-    public function __construct($nome, $sconto = null, $pezzi = null, $codiceProdotto = null ){
-        $this->nome = $nome;
-        $this->sconto = $sconto;
-        $this->pezzi = $pezzi;
-        $this->codiceProdotto = $codiceProdotto;
+    public function __construct($nome, $sconto, $pezzi, $codiceProdotto){
+        if(is_string($nome) && strlen($nome) > 2){
+           $this->nome = $nome; 
+        }else{
+            echo 'Error nome prodotto non valido';
+        }
+
+        if(is_numeric($sconto) && $sconto >= 0){
+            $this->sconto = $sconto;  
+        }else{
+            $this->sconto = 0;
+        }
+        
+        if(is_numeric($pezzi) && $pezzi >= 0){
+            $this->pezzi = $pezzi; 
+        }else{
+            echo 'Error numero pezzi non valido';
+        }
+        
+        if(is_numeric($codiceProdotto) && $codiceProdotto >= 0){
+            $this->codiceProdotto = $codiceProdotto; 
+        }else{
+            echo 'Error codice prodotto non valido';
+        }
+        
+        
     }
 
     //funzione per inserire il codice prodotto

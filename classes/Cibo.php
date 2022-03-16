@@ -7,18 +7,35 @@ class Cibo extends Prodotto{
     protected $pesoProdotto;
     protected $tipoCibo;
 
-    public function __construct($nome, $sconto = null, $pezzi = null, $codiceProdotto = null,$pesoProdotto = null,$tipoCibo){
+    public function __construct($nome, $sconto , $pezzi , $codiceProdotto,$pesoProdotto ,$tipoCibo){
         //valori ripresi dalla classe padre
         parent::__construct($nome, $sconto, $pezzi , $codiceProdotto );
 
         //valori nuovi
-        $this->pesoProdotto = $pesoProdotto;
-        $this->tipoCibo = $tipoCibo;
+        if(is_numeric($pesoProdotto) && $pesoProdotto >= 0){
+            $this->pesoProdotto = $pesoProdotto; 
+        } else{
+            echo 'Error peso errato';
+        }
+        if (is_string($tipoCibo) && strlen($tipoCibo) > 3){
+            $this->tipoCibo = $tipoCibo;
+        }else{
+            echo 'Error cibo non valido';
+        }
+        
     }
 
     public function setPesoProdotto($pesoProdotto){
         if(is_numeric($pesoProdotto) && $pesoProdotto >= 0){
             $this->pesoProdotto = $pesoProdotto; 
+        } 
+    }
+
+    public function setTipoCibo($tipoCibo){
+        if (is_string($tipoCibo) && strlen($tipoCibo) > 3){
+            $this->tipoCibo = $tipoCibo;
+        }else{
+            echo 'Error cibo non valido';
         } 
     }
 }

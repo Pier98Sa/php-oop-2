@@ -6,7 +6,7 @@ require_once __DIR__ . '/Prodotto.php';
 class Antipulci extends Prodotto{
     protected $disponibilità ;
 
-    public function __construct($nome, $sconto = null, $pezzi = null, $codiceProdotto = null){
+    public function __construct($nome, $sconto, $pezzi, $codiceProdotto){
         //valori ripresi dalla classe padre
         parent::__construct($nome, $sconto, $pezzi , $codiceProdotto );
 
@@ -17,7 +17,7 @@ class Antipulci extends Prodotto{
         if(date("m") >= '5' && date("m") <= '8'){
             $this->disponibilità = "disponibilie";
         }else{
-            $this->disponibilità = "Non disponibilie";
+            $this->disponibilità = "Non disponibile";
         }
     }
 
