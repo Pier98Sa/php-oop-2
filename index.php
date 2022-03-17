@@ -26,5 +26,5 @@ var_dump($Antipulce1);
 $UserOspite1 = new User("Luigi","Rossi","luigirossi@email.it", "Via corso 2",3405745600);
 var_dump($UserOspite1);
 
-$UserLogged1 = new LoggedUser("Luca","Scovotto","lucascovotto@email.it","Via corso 3",3405745601,10);
+$UserLogged1 = new LoggedUser("Luca","Scovotto","lucascovotto@email.it","Via corso 3",3405745601);
 var_dump($UserLogged1);
