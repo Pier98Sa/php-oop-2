@@ -7,6 +7,7 @@ class CartaDiCredito{
     protected $meseScadenza;
     protected $annoScadenza;
     protected $cvc;
+    protected $valid;
 
     public function __construct($nome,$cognome,$numeroCarta,$meseScadenza,$annoScadenza,$cvc ){
         
@@ -33,17 +34,17 @@ class CartaDiCredito{
 
         //controllo del mese di scadenza
 
-        if(is_numeric($meseScadenza) && $meseScadenza >= idate("m") + 1 ){
+        if(is_numeric($meseScadenza) && $meseScadenza >= 1 && $meseScadenza <= 12 ){
             $this->meseScadenza = $meseScadenza;
         }else{
-            echo 'Error mese non valido o carta scaduta';
+            echo 'Error mese non valido';
         }
 
         //controllo dell' anno di scadenza
-        if(is_numeric($annoScadenza) && $annoScadenza >= idate("y") && $annoScadenza < 100 ){
+        if(is_numeric($annoScadenza) && $annoScadenza >= 0 && $annoScadenza < 100 ){
             $this->annoScadenza = $annoScadenza;
         }else{
-            echo 'Error anno non valido o carta scaduta';
+            echo 'Error anno non valido';
         }
 
         //controllo del cvc
@@ -52,7 +53,25 @@ class CartaDiCredito{
             $this->cvc = $cvc;
         }else{
             echo 'Error cvc non valido ';
+        }  
+
+        $this->isExpired($meseScadenza,$annoScadenza);
+    }
+
+    //validazione della carta di credito
+    public function isExpired($meseScadenza,$annoScadenza){
+        if($meseScadenza >= idate("m")){   //se mese maggiore uguale del mese corrente
+            if($annoScadenza >= idate("y")){//se anno maggiore uguale del mese corrente
+                $this->valid = 'carta valida'; 
+            }else{
+                $this->valid = 'carta scaduta';   
+            }
+        }elseif($meseScadenza < idate("m")){ //se mese minore del mese corrente
+            if($annoScadenza >= idate("y")){//se anno maggiore uguale del mese corrente
+                $this->valid = 'carta valida';
+            }else{
+                $this->valid = 'carta scaduta';
+            }
         }
-        
     }
 }
