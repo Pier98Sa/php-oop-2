@@ -11,15 +11,20 @@ class Antipulci extends Prodotto{
         parent::__construct($nome,$prezzo, $sconto, $pezzi , $codiceProdotto );
 
         //richiamo della funzione per la disponibilità
-        $this->setDisponibilità();
+        try{
+            $this->setDisponibilità();
+        }catch(Exception $m){
+            echo $m->getMessage();
+        }
         
     }
 
     //funzione per la disponibilità
     public function setDisponibilità(){
         if(idate("m") >= 5 && idate("m") <= 8){
-            $this->disponibilità = "disponibilie";
+            $this->disponibilità = "disponibile";
         }else{
+            throw new Exception('Il prodotto non è disponibile');
             $this->disponibilità = "Non disponibile";
         }
     }
