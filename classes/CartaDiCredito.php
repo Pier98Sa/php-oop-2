@@ -55,7 +55,12 @@ class CartaDiCredito{
             echo 'Error cvc non valido ';
         }  
 
-        $this->isExpired($meseScadenza,$annoScadenza);
+        try{
+            $this->isExpired($meseScadenza,$annoScadenza);
+        } catch(Exception $e){
+            echo $e->getMessage();
+        }
+        
     }
 
     //validazione della carta di credito
@@ -64,14 +69,18 @@ class CartaDiCredito{
             if($annoScadenza >= idate("y")){//se anno maggiore uguale del mese corrente
                 $this->valid = 'carta valida'; 
             }else{
+                throw new Exception('La Carta di credito è scaduta');
                 $this->valid = 'carta scaduta';   
             }
         }elseif($meseScadenza < idate("m")){ //se mese minore del mese corrente
-            if($annoScadenza >= idate("y")){//se anno maggiore uguale del mese corrente
+            if($annoScadenza > idate("y")){//se anno maggiore uguale del mese corrente
                 $this->valid = 'carta valida';
             }else{
+                throw new Exception('La Carta di credito è scaduta');
                 $this->valid = 'carta scaduta';
             }
         }
     }
+
+    //altro tipo di validazione usare la DateTime
 }
