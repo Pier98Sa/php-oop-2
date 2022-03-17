@@ -8,24 +8,28 @@ class Prodotto{
 
     //costruttore che richiede di base il nome
     public function __construct($nome, $sconto, $pezzi, $codiceProdotto){
+        //controllo del nome
         if(is_string($nome) && strlen($nome) > 2){
            $this->nome = $nome; 
         }else{
             echo 'Error nome prodotto non valido';
         }
 
+        //controllo dello sconto
         if(is_numeric($sconto) && $sconto >= 0){
             $this->sconto = $sconto;  
         }else{
             $this->sconto = 0;
         }
         
+        //controllo dei pezzi
         if(is_numeric($pezzi) && $pezzi >= 0){
             $this->pezzi = $pezzi; 
         }else{
             echo 'Error numero pezzi non valido';
         }
         
+        //controllo del codice prodotto
         if(is_numeric($codiceProdotto) && $codiceProdotto >= 0){
             $this->codiceProdotto = $codiceProdotto; 
         }else{

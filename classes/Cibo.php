@@ -11,12 +11,14 @@ class Cibo extends Prodotto{
         //valori ripresi dalla classe padre
         parent::__construct($nome, $sconto, $pezzi , $codiceProdotto );
 
-        //valori nuovi
+        //controllo del peso
         if(is_numeric($pesoProdotto) && $pesoProdotto >= 0){
             $this->pesoProdotto = $pesoProdotto; 
         } else{
             echo 'Error peso errato';
         }
+
+        //controllo tipo cibo
         if (is_string($tipoCibo) && strlen($tipoCibo) > 3){
             $this->tipoCibo = $tipoCibo;
         }else{
@@ -25,12 +27,14 @@ class Cibo extends Prodotto{
         
     }
 
+    //funzione per settare il peso del prodotto
     public function setPesoProdotto($pesoProdotto){
         if(is_numeric($pesoProdotto) && $pesoProdotto >= 0){
             $this->pesoProdotto = $pesoProdotto; 
         } 
     }
 
+    //funzione per settare la tipologia del peso
     public function setTipoCibo($tipoCibo){
         if (is_string($tipoCibo) && strlen($tipoCibo) > 3){
             $this->tipoCibo = $tipoCibo;

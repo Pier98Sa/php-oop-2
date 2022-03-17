@@ -10,9 +10,12 @@ class Antipulci extends Prodotto{
         //valori ripresi dalla classe padre
         parent::__construct($nome, $sconto, $pezzi , $codiceProdotto );
 
+        //richiamo della funzione per la disponibilità
         $this->setDisponibilità();
         
     }
+
+    //funzione per la disponibilità
     public function setDisponibilità(){
         if(date("m") >= '5' && date("m") <= '8'){
             $this->disponibilità = "disponibilie";

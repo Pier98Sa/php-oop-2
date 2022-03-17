@@ -11,13 +11,14 @@ class Cucce extends Giochi{
         //valori ripresi dalla classe padre
         parent::__construct($nome, $sconto, $pezzi , $codiceProdotto,$materiale);
 
-        //valori nuovi
+        //controllo dell'altezza
         if(is_numeric($altezza)&& $altezza >= 100 && $altezza <= 300){
             $this->altezza = $altezza; 
         }else{
             echo 'Error misura altezza non valida';
         }
         
+        //controllo della larghezza
         if(is_numeric($larghezza)&& $larghezza >= 100 && $larghezza <= 300){
             $this->larghezza = $larghezza; 
         }else{
