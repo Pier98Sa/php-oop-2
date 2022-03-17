@@ -33,14 +33,14 @@ class CartaDiCredito{
 
         //controllo del mese di scadenza
 
-        if(is_numeric($meseScadenza) && $meseScadenza >= date("m") + 1 ){
+        if(is_numeric($meseScadenza) && $meseScadenza >= idate("m") + 1 ){
             $this->meseScadenza = $meseScadenza;
         }else{
             echo 'Error mese non valido o carta scaduta';
         }
 
         //controllo dell' anno di scadenza
-        if(is_numeric($annoScadenza) && $annoScadenza >= date("y") ){
+        if(is_numeric($annoScadenza) && $annoScadenza >= idate("y") && $annoScadenza < 100 ){
             $this->annoScadenza = $annoScadenza;
         }else{
             echo 'Error anno non valido o carta scaduta';

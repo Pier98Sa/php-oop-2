@@ -17,7 +17,7 @@ class Antipulci extends Prodotto{
 
     //funzione per la disponibilità
     public function setDisponibilità(){
-        if(date("m") >= '5' && date("m") <= '8'){
+        if(idate("m") >= 5 && idate("m") <= 8){
             $this->disponibilità = "disponibilie";
         }else{
             $this->disponibilità = "Non disponibile";
