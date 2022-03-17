@@ -2,12 +2,13 @@
 //classe base di ogni prodotto
 class Prodotto{
     public $nome;
+    protected $prezzo;
     protected $sconto;
     protected $pezzi;
     protected $codiceProdotto;
 
     //costruttore che richiede di base il nome
-    public function __construct($nome, $sconto, $pezzi, $codiceProdotto){
+    public function __construct($nome, $prezzo, $sconto, $pezzi, $codiceProdotto){
         //controllo del nome
         if(is_string($nome) && strlen($nome) > 2){
            $this->nome = $nome; 
@@ -15,6 +16,13 @@ class Prodotto{
             echo 'Error nome prodotto non valido';
         }
 
+        //controllo del prezzo
+        if(is_numeric($prezzo) && $prezzo > 0){
+            $this->prezzo = $prezzo;  
+        }else{
+            echo 'Error przzzo non valido';
+        }
+        
         //controllo dello sconto
         if(is_numeric($sconto) && $sconto >= 0){
             $this->sconto = $sconto;  

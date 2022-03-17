@@ -7,9 +7,9 @@ class Cibo extends Prodotto{
     protected $pesoProdotto;
     protected $tipoCibo;
 
-    public function __construct($nome, $sconto , $pezzi , $codiceProdotto,$pesoProdotto ,$tipoCibo){
+    public function __construct($nome,$prezzo, $sconto , $pezzi , $codiceProdotto,$pesoProdotto ,$tipoCibo){
         //valori ripresi dalla classe padre
-        parent::__construct($nome, $sconto, $pezzi , $codiceProdotto );
+        parent::__construct($nome,$prezzo, $sconto, $pezzi , $codiceProdotto );
 
         //controllo del peso
         if(is_numeric($pesoProdotto) && $pesoProdotto >= 0){

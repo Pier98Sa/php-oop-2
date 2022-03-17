@@ -7,9 +7,9 @@ class Cucce extends Giochi{
     protected $altezza;
     protected $larghezza;
 
-    public function __construct($nome, $sconto, $pezzi , $codiceProdotto ,$materiale, $altezza, $larghezza){
+    public function __construct($nome,$prezzo, $sconto, $pezzi , $codiceProdotto ,$materiale, $altezza, $larghezza){
         //valori ripresi dalla classe padre
-        parent::__construct($nome, $sconto, $pezzi , $codiceProdotto,$materiale);
+        parent::__construct($nome,$prezzo, $sconto, $pezzi , $codiceProdotto,$materiale);
 
         //controllo dell'altezza
         if(is_numeric($altezza)&& $altezza >= 100 && $altezza <= 300){

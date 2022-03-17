@@ -6,9 +6,9 @@ require_once __DIR__ . '/Prodotto.php';
 class Giochi extends Prodotto{
     protected $materiale;
 
-    public function __construct($nome, $sconto , $pezzi , $codiceProdotto ,$materiale){
+    public function __construct($nome,$prezzo, $sconto , $pezzi , $codiceProdotto ,$materiale){
         //valori ripresi dalla classe padre
-        parent::__construct($nome, $sconto, $pezzi , $codiceProdotto);
+        parent::__construct($nome,$prezzo, $sconto, $pezzi , $codiceProdotto);
 
         //valori nuovi
         if(is_string($materiale) && strlen($materiale) > 2){

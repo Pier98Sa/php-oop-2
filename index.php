@@ -13,19 +13,19 @@ $carta1 = new CartaDiCredito("Pierluigi", "La Rocca", 8000800080008000,04,24,666
 var_dump($carta1);
 
 // cibo
-$ScatoloCibo1 = new Cibo("Simba", '',25,001,250,"Carne di Manzo");
+$ScatoloCibo1 = new Cibo("Simba",2, '',25,001,250,"Carne di Manzo");
 var_dump($ScatoloCibo1);
 
 //cuccia
-$Cuccia1 = new Cucce("Croci Villa", 5, 10, 005, 'legno', 255,300);
+$Cuccia1 = new Cucce("Croci Villa",200, 5, 10, 005, 'legno', 255,300);
 var_dump($Cuccia1);
 
 //gioco
-$Gioco1 = new Giochi("Trixie",15,75,007,'plastica');
+$Gioco1 = new Giochi("Trixie",3,15,75,007,'plastica');
 var_dump($Gioco1);
 
 //antipulce
-$Antipulce1 = new Antipulci("Seresto",12,51,015);
+$Antipulce1 = new Antipulci("Seresto",5,12,51,015);
 var_dump($Antipulce1);
 
 //user ospite
