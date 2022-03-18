@@ -9,7 +9,7 @@ require_once __DIR__ . '/classes/User.php';
 require_once __DIR__ . '/classes/LoggedUser.php';
 
 // carta di credito
-$carta1 = new CartaDiCredito("Pierluigi", "La Rocca", 8000800080008000, 04, 22, 666);
+$carta1 = new CartaDiCredito("Pierluigi", "La Rocca", 8000800080008000, 04, 22,'000');
 var_dump($carta1);
 
 // cibo

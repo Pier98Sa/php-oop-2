@@ -48,8 +48,8 @@ class CartaDiCredito{
         }
 
         //controllo del cvc
-
-        if(is_numeric($cvc) && $cvc >= 1 && $cvc < 1000){
+        //richiede come dato d'ingresso una stringa numerica
+        if(is_numeric($cvc) && $cvc >= 0 && strlen($cvc) == 3){
             $this->cvc = $cvc;
         }else{
             echo 'Error cvc non valido ';
