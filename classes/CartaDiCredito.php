@@ -26,7 +26,8 @@ class CartaDiCredito{
         }
 
         //controllo del numero della carta
-        if (is_numeric($numeroCarta) && $numeroCarta > 1000000000000000){
+        //richiede come dato d'ingresso una stringa numerica
+        if (is_numeric($numeroCarta) && strlen($numeroCarta) == 16){
             $this->numeroCarta = $numeroCarta;
         }else{
             echo 'Error numero di carta non valido';
